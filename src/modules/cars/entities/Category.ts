@@ -14,13 +14,8 @@ class Category {
     @CreateDateColumn()
     created_at: Date;
 
-    constructor(name: string, description: string) {
-        if (!this.id) {
-            this.id = uuidv4();
-        }
-        this.name = name;
-        this.description = description;
-        this.created_at = new Date();
+    constructor() {
+        if (!this.id) this.id = uuidv4();
     }
 }
 
