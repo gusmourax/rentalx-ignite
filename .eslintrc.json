@@ -18,6 +18,10 @@
         "eslint-plugin-import-helpers"
     ],
     "rules": {
+        "linebreak-style": [
+            "error",
+            "windows"
+        ],
         "indent": [
             "error",
             4
