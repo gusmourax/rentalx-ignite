@@ -2,6 +2,7 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { inject, injectable } from 'tsyringe';
 
+import { AppError } from '../../../../errors/AppError';
 import { IAuthenticateUserDTO } from '../../dtos/IAuthenticateUserDTO';
 import { IUsersRepository } from '../../repositories/IUsersRepositories';
 
@@ -19,11 +20,11 @@ class AuthenticateUserUseCase {
 
     async execute({ email, password }: IAuthenticateUserDTO): Promise<IResponse> {
         const user = await this.usersRepository.findByEmail(email);
-        if (!user) throw new Error('Email or password incorrect');
+        if (!user) throw new AppError('Email or password incorrect', 401);
 
         const passwordMatch = await bcrypt.compare(password, user.password);
 
-        if (!passwordMatch) throw new Error('Email or password incorrect');
+        if (!passwordMatch) throw new AppError('Email or password incorrect', 401);
 
         const token = jwt.sign({}, 'a7e071b3de48cec1dd24de6cbe6c7bf1', {
             subject: user.id,
