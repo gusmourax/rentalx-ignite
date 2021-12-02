@@ -1,3 +1,4 @@
+import 'reflect-metadata';
 import express, {
     NextFunction,
     Request, Response,
@@ -5,13 +6,14 @@ import express, {
 import 'express-async-errors';
 import swagger from 'swagger-ui-express';
 
-import '../typeorm';
 import '../../container';
 
 import swaggerConfig from '../../../swagger.json';
 import { AppError } from '../../errors/AppError';
+import createConnection from '../typeorm';
 import { router } from './routes';
 
+createConnection();
 const app = express();
 
 app.use(express.json());

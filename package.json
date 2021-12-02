@@ -40,6 +40,7 @@
   "scripts": {
     "dev": "tsnd --inspect --respawn --transpile-only --ignore-watch node_modules src/shared/infra/http/server.ts",
     "typeorm": "tsnd ./node_modules/typeorm/cli",
-    "test": "jest"
+    "test": "jest",
+    "seed:admin": "ts-node-dev src/shared/infra/typeorm/seed/admin.ts"
   }
 }
