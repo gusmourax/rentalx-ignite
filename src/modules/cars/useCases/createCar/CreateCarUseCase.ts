@@ -5,10 +5,10 @@ import { ICreateCarDTO } from '../../dtos/ICreateCarDTO';
 import { Car } from '../../infra/typeorm/entities/Car';
 import { ICarsRepository } from '../../repositories/ICarsRepository';
 
-// @injectable()
+@injectable()
 class CreateCarUseCase {
     constructor(
-        // @inject('CarsRepository')
+        @inject('CarsRepository')
         private readonly carsRepository: ICarsRepository,
     ) { }
 
