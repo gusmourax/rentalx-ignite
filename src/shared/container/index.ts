@@ -13,12 +13,9 @@ container.registerSingleton<ICategoriesRepository>(
     'CategoriesRepository',
     CategoriesRepository,
 );
-
 container.registerSingleton<ISpecificationsRepository>(
     'SpecificationsRepository',
     SpecificationsRepository,
 );
-
 container.registerSingleton<IUsersRepository>('UsersRepository', UsersRepository);
-
 container.registerSingleton<ICarsRepository>('CarsRepository', CarsRepository);
