@@ -14,7 +14,6 @@ router.use('/specifications', specificationsRoutes);
 router.use('/users', usersRoutes);
 router.use('/cars', carsRoutes);
 router.use('/rentals', rentalRoutes);
-router.get('/', (req, res) => res.send('Hello World!'));
 router.use(authenticateRoutes);
 
 export { router };
